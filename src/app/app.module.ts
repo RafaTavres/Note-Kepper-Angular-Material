@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './views/dashboard/dashboard.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DashboardModule } from './views/dashboard/dashboard.module';
 
     CoreModule,
     DashboardModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
