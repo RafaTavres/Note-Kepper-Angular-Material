@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShellModule } from './shell/shell/shell.module';
+import { ShellModule } from './shell/shell.module';
 
 
 
