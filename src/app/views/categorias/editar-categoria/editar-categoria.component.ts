@@ -26,6 +26,8 @@ export class EditarCategoriaComponent implements OnInit{
     this.idSelecionado =parseInt(this.route.snapshot.paramMap.get('id')!);
 
     this.categoriaSelecionada = this.route.snapshot.data['categoria']; 
+
+    this.form.patchValue(this.categoriaSelecionada);
   }
 
   gravar():void {

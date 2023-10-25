@@ -7,10 +7,14 @@ import { ListarCategoriasComponent } from './listar-categorias/listar-categorias
 import { Categoria } from './models/categoria';
 import { CategoriaService } from './services/categoria.service';
 
-  const categoriaResolver: ResolveFn<Categoria> = (
+  const formscategoriaResolver: ResolveFn<Categoria> = (
     route: ActivatedRouteSnapshot
   ) => {
     return inject(CategoriaService).selecionarPorId(parseInt(route.paramMap.get('id')!));
+  };
+
+  const listarcategoriaResolver: ResolveFn<Categoria[]> = () => {
+    return inject(CategoriaService).selecionarTodos();
   };
 
 const routes: Routes = [
@@ -21,7 +25,8 @@ const routes: Routes = [
   },
   {
     path:'listar',
-    component:ListarCategoriasComponent
+    component:ListarCategoriasComponent,
+    resolve: { categorias: listarcategoriaResolver}
   }
   ,
   {
@@ -32,13 +37,13 @@ const routes: Routes = [
   {
     path:'editar/:id',
     component:EditarCategoriaComponent,
-    resolve: { categoria: categoriaResolver },
+    resolve: { categoria: formscategoriaResolver },
   }
   ,
   {
     path:'excluir/:id',
     component:ExcluirCategoriaComponent,
-    resolve: { categoria: categoriaResolver },
+    resolve: { categoria: formscategoriaResolver },
   }
 ];
 
