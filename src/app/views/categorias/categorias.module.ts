@@ -19,10 +19,9 @@ import { ExcluirCategoriaComponent } from './excluir-categoria/excluir-categoria
     ExcluirCategoriaComponent
   ],
   imports: [
-    CommonModule,
     CategoriasRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    
   ],
   providers:[CategoriaService]
 })

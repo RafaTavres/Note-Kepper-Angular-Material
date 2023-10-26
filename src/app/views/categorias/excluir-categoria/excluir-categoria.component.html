@@ -7,13 +7,16 @@
     </p>
 
     <mat-list *ngIf="categoria$ | async as categoria">
+      
       <mat-list-item>
         <div class="d-flex justify-content-between">
           <span>Título:</span>
           <span>{{categoria.titulo}}</span>
         </div>
       </mat-list-item>
+
       <mat-divider></mat-divider>
+
     </mat-list>
 
     <div class="d-flex justify-content-end gap-2 mt-5">

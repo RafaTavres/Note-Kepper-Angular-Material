@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/core/notification/services/notification.service';
 import { Categoria } from '../models/categoria';
 import { CategoriaService } from '../services/categoria.service';
 
@@ -12,7 +13,7 @@ import { CategoriaService } from '../services/categoria.service';
 export class InserirCategoriaComponent implements OnInit{
   form!: FormGroup
 
-  constructor(private fb:FormBuilder, private categoriaService:CategoriaService, private router:Router){
+  constructor(private fb:FormBuilder, private categoriaService:CategoriaService, private router:Router,private notificationService: NotificationService){
 
   }
 
@@ -30,12 +31,11 @@ export class InserirCategoriaComponent implements OnInit{
   }
 
   processarSucesso(res: Categoria){
-    console.clear()
-    console.log(res);
+    this.notificationService.sucesso(`Categoria ${res.titulo} cadastrada com sucesso!`);
     this.router.navigate(['/categorias', 'listar']);
   }
 
   processarErro(err: any){
-    console.error('Erro:', err);
+    this.notificationService.erro(`Erro ${err}`);
   }
 }

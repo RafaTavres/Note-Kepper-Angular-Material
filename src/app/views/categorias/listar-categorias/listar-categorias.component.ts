@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { NotificationService } from 'src/app/core/notification/services/notification.service';
 import { Categoria } from '../models/categoria';
 
 @Component({

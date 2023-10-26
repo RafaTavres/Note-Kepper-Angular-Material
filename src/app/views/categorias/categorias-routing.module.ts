@@ -6,15 +6,12 @@ import { InserirCategoriaComponent } from './inserir-categoria/inserir-categoria
 import { ListarCategoriasComponent } from './listar-categorias/listar-categorias.component';
 import { Categoria } from './models/categoria';
 import { CategoriaService } from './services/categoria.service';
+import { listarcategoriaResolver } from './services/listar-categorias.resolver';
 
   const formscategoriaResolver: ResolveFn<Categoria> = (
     route: ActivatedRouteSnapshot
   ) => {
     return inject(CategoriaService).selecionarPorId(parseInt(route.paramMap.get('id')!));
-  };
-
-  const listarcategoriaResolver: ResolveFn<Categoria[]> = () => {
-    return inject(CategoriaService).selecionarTodos();
   };
 
 const routes: Routes = [
